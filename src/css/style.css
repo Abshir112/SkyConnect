@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(138, 182, 228);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.nav-items a {
+    margin-left: 10px;
+}
+
+
+.navbar a:hover {
+    background-color: #ddd;
+    border-radius: 10px;
+    color: black;
+}
+
+

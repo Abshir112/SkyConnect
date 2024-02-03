@@ -81,7 +81,7 @@ function displayPostAndComments(post, postsContainer) {
     postElement.classList.add('post');
     postElement.innerHTML = `
         <div class="post-header">
-            <img class="profile_icon" src="../assets/img/profile_icon.svg" alt="User icon">
+            <img class="profile_icon" src="../src/assets/img/profile_icon.svg" alt="User icon">
             <h2 class="username" data-userid="${post.userId}">Loading username...</h2>
         </div>
         <p class="post-body">${post.body}</p>

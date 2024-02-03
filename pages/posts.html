@@ -4,39 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BabaMedia</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/posts.css">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/posts.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">BABA-MEDIA</div>
             <div class="menu">
-                <a href="#">Home</a>
+                <a href="../index.html">Home</a>
                 <a href="#about">About</a>
-                <a href="./posts.html">Posts</a>
+                <a href="#">Posts</a>
                 <a href="#">Contact</a>
                 <a href="#">Log in</a>
                 <a href="#" class="signup-btn">Sign up</a>
             </div>
         </nav>
-
-        <div class="hero">
-            <h1>Connect, Share, and Inspire.<br>
-                Your Space to Spark Conversations.</h1>
-            <p>Join our community to discover stories, ideas, and voices <br> that matter most to you. Engage, interact, and express yourself in a whole new way.</p>
-        </div>
-        
     </header>
-    <section class="home-page-posts">     
+    <section class="posts-container">    
      
     </section>
-    <div class="see-more-posts">
-        <p class="see-posts">See More</p>
-        <a  href="./posts.html" ><img src="../assets/img/view-more.png" alt="view more icon"></a>
-        
+    
+    <!-- Modal Structure -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-username">Username</h2>
+            <p id="modal-fullname">Full Name: </p>
+            <p id="modal-email">Email: </p>
+            <p id="modal-phone">Phone: </p>
+        </div>
     </div>
-
+    
     <footer id="about">
         <div class="footer-content">
             <div class="about">
@@ -56,9 +55,8 @@
             <p>&copy; 2024 BABA-MEDIA. All rights reserved.</p>
         </div>
     </footer>
-    
 
-    <script src="../js/script.js"></script>
+    <script src="../src/js/script.js"></script>
     
 </body>
 </html>

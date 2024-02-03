@@ -50,7 +50,8 @@ nav .signup-btn {
     margin: 10px;
     display: flex;
     flex-direction: column;
-    background-color: #8fceeb;
+    /* background-color: #8fceeb; */
+    background-color: #FFF6E9;
 }
 
 .post:hover{
@@ -109,7 +110,7 @@ nav .signup-btn {
     border-top: 1px solid #000;
     padding-top: 10px;
     padding-left: 5px;
-    background-color: #4eb8ea;
+    /* background-color: #4eb8ea; */
     border-radius: 10px;
 }
 

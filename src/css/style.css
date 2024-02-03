@@ -11,7 +11,8 @@ nav {
     align-items: center;
     padding: 1em;
     /* border-radius: 5px; */
-    background-image: linear-gradient(#01e8e0, #4eb8ea, #738ff0);
+    /* background-image: linear-gradient(#01e8e0, #4eb8ea, #738ff0); */
+    background-color: #BBE2EC;
 }
 
 nav .logo {
@@ -97,7 +98,8 @@ nav .signup-btn {
     
 }
 .see-posts {
-    background-color: #4eb8ea;
+    /* background-color: #4eb8ea; */
+    background-color: #0D9276;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -120,7 +122,8 @@ footer {
     /* background-color: #ecf0f1; 
     color: #333; */
 
-    background-color: #9dc2eb;
+    /* background-color: #9dc2eb; */
+    background-color: #BBE2EC;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     padding: 40px 0;
     line-height: 1.6;
@@ -144,7 +147,8 @@ footer {
 .contact h3 {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: white; 
+    /* color: white;  */
+    color: #0D9276;
 }
 
 .about p,

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('https://dummyjson.com/posts')
         .then(res => {
             if (!res.ok) {
-                throw new Error('Posts fetch error: ${res.status} ${res.statusText}');
+                throw new Error('Posts fetch error: ${res.status}');
             }
             return res.json();
         })
@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
             postsToDisplay.forEach((post) => {
                 displayPostAndComments(post, postsContainer);
             });
+        }).catch(error => {
+            console.error(error);
+            // const postsContainer = document.querySelector('.posts-container');
+            // postsContainer.innerHTML = '<p class="error-posts">Posts could not be loaded.</p>'; // Error message for posts
         });
 
     // Close modal functionality
@@ -77,7 +81,7 @@ function displayPostAndComments(post, postsContainer) {
     postElement.classList.add('post');
     postElement.innerHTML = `
         <div class="post-header">
-            <img class="profile_icon" src="../assets/img/profile_icon.svg" alt="User Avatar">
+            <img class="profile_icon" src="../assets/img/profile_icon.svg" alt="User icon">
             <h2 class="username" data-userid="${post.userId}">Loading username...</h2>
         </div>
         <p class="post-body">${post.body}</p>
@@ -96,7 +100,7 @@ function displayPostAndComments(post, postsContainer) {
     fetch(`https://dummyjson.com/users/${post.userId}`)
         .then(res => {
             if (!res.ok) {
-                throw new Error('User data fetch error: ${res.status} ${res.statusText}');
+                throw new Error('User data fetch error: ${res.status}');
             }
             return res.json();
 
@@ -122,7 +126,7 @@ function displayPostAndComments(post, postsContainer) {
         .then(res => 
             {
                 if (!res.ok) {
-                    throw new Error('Comments fetch error: ${res.status} ${res.statusText}');
+                    throw new Error('Comments fetch error: ${res.status}');
                 }
                 return res.json();
             })

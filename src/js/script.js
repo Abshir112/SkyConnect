@@ -27,7 +27,12 @@ class User {
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch all posts
     fetch('https://dummyjson.com/posts')
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Posts fetch error: ${res.status} ${res.statusText}');
+            }
+            return res.json();
+        })
         .then(data => {
             // Determine the container to append posts to
             let postsContainer = document.querySelector('.posts-container'); // Default to the post page container
@@ -89,7 +94,14 @@ function displayPostAndComments(post, postsContainer) {
 
     // Fetch and create a User object for the post's author
     fetch(`https://dummyjson.com/users/${post.userId}`)
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('User data fetch error: ${res.status} ${res.statusText}');
+            }
+            return res.json();
+
+        })
+           
         .then(userData => {
             const user = new User(userData.id, userData.username, userData.firstName, userData.lastName, userData.email, userData.phone);
             const usernameElement = postElement.querySelector('.username');
@@ -99,11 +111,21 @@ function displayPostAndComments(post, postsContainer) {
             usernameElement.addEventListener('click', function() {
                 user.showModal();
             });
+        }).catch(error => {
+            console.error(error);
+            const usernameElement = postElement.querySelector('.username');
+            usernameElement.textContent = 'User data not available';
         });
 
     // Fetch and display comments for the post
     fetch(`https://dummyjson.com/comments/post/${post.id}`)
-        .then(res => res.json())
+        .then(res => 
+            {
+                if (!res.ok) {
+                    throw new Error('Comments fetch error: ${res.status} ${res.statusText}');
+                }
+                return res.json();
+            })
         .then(data => {
             const commentsSection = postElement.querySelector('.comments');
             commentsSection.innerHTML = ''; // Clear any existing comments
@@ -114,5 +136,9 @@ function displayPostAndComments(post, postsContainer) {
                 commentDiv.textContent = `${comment.user.username}: ${comment.body}`; // Display the username and comment body
                 commentsSection.appendChild(commentDiv);
             });
+        }).catch(error => {
+            console.error(error);
+            const commentsSection = postElement.querySelector('.comments');
+            commentsSection.innerHTML = '<p class="error-comments">Comments could not be loaded.</p>'; // Error message for comments
         });
 }

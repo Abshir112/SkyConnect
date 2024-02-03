@@ -154,3 +154,64 @@ nav .signup-btn {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+@media (max-width: 768px) {
+    .posts-container, .home-page-posts {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .modal-content {
+        width: 50%; 
+    }
+
+    .username {
+        font-size: 1.2rem; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .posts-container, .home-page-posts {
+        grid-template-columns: 1fr; 
+        padding: 0 10px; 
+    }
+
+    .post {
+        margin: 10px 0; 
+    }
+
+    .post-header {
+        gap: 5px; 
+    }
+
+    .profile_icon {
+        width: 30px; 
+        height: 30px;
+    }
+
+    .username {
+        font-size: 1rem; 
+    }
+
+    .modal-content {
+        width: 80%; 
+        margin: 10% auto; 
+    }
+
+    .close {
+        font-size: 24px; 
+    }
+}
+
+
+@media (max-width: 320px) {
+    .modal-content {
+        width: 90%; 
+        padding: 10px; 
+    }
+
+    .post-body, .comment {
+        font-size: 0.9rem; 
+    }
+}

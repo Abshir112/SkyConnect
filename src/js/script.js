@@ -1,11 +1,12 @@
 class User {
-    constructor(id, username, firstName, lastName, email, phone) {
+    constructor(id, username, firstName, lastName, email, phone, image) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.image = image
     }
 
     get fullName() {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('https://dummyjson.com/posts')
         .then(res => {
             if (!res.ok) {
-                throw new Error('Posts fetch error: ${res.status}');
+                throw new Error('Posts could not be fetched.');
             }
             return res.json();
         })
@@ -52,8 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }).catch(error => {
             console.error(error);
-            // const postsContainer = document.querySelector('.posts-container');
-            // postsContainer.innerHTML = '<p class="error-posts">Posts could not be loaded.</p>'; // Error message for posts
         });
 
     // Close modal functionality
@@ -81,7 +80,7 @@ function displayPostAndComments(post, postsContainer) {
     postElement.classList.add('post');
     postElement.innerHTML = `
         <div class="post-header">
-            <img class="profile_icon" src="../src/assets/img/profile_icon.svg" alt="User icon">
+            <img class="profile_icon" src="" alt="User icon">
             <h2 class="username" data-userid="${post.userId}">Loading username...</h2>
         </div>
         <h3 class="post-title">${post.title}</h3>
@@ -102,16 +101,19 @@ function displayPostAndComments(post, postsContainer) {
     fetch(`https://dummyjson.com/users/${post.userId}`)
         .then(res => {
             if (!res.ok) {
-                throw new Error('User data fetch error: ${res.status}');
+                throw new Error('User data not available.');
             }
             return res.json();
 
         })
            
         .then(userData => {
-            const user = new User(userData.id, userData.username, userData.firstName, userData.lastName, userData.email, userData.phone);
+            const user = new User(userData.id, userData.username, userData.firstName, userData.lastName, userData.email, userData.phone, userData.image);
             const usernameElement = postElement.querySelector('.username');
+            const profileIconElement = postElement.querySelector('.profile_icon'); // Get the profile icon image element
+
             usernameElement.textContent = user.username;
+            profileIconElement.src = user.image; // Set the image URL for the profile icon
 
             // Add click event listener for the username to open the modal
             usernameElement.addEventListener('click', function() {
@@ -119,8 +121,6 @@ function displayPostAndComments(post, postsContainer) {
             });
         }).catch(error => {
             console.error(error);
-            const usernameElement = postElement.querySelector('.username');
-            usernameElement.textContent = 'User data not available';
         });
 
     // Fetch and display comments for the post
@@ -128,7 +128,7 @@ function displayPostAndComments(post, postsContainer) {
         .then(res => 
             {
                 if (!res.ok) {
-                    throw new Error('Comments fetch error: ${res.status}');
+                    throw new Error('Comments could not be loaded.');
                 }
                 return res.json();
             })
@@ -144,7 +144,5 @@ function displayPostAndComments(post, postsContainer) {
             });
         }).catch(error => {
             console.error(error);
-            const commentsSection = postElement.querySelector('.comments');
-            commentsSection.innerHTML = '<p class="error-comments">Comments could not be loaded.</p>'; // Error message for comments
         });
 }

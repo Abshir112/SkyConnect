@@ -5,7 +5,7 @@ body {
     background-color: #f0f2f1;
 }
 
-nav {
+/* nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,7 +31,7 @@ nav .signup-btn {
     margin: 15px;
     border: 1px solid white;
     color: #fff;
-}
+} */
 
 .posts-container, .home-page-posts{
     display: grid;

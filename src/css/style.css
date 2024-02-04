@@ -12,7 +12,7 @@ nav {
     padding: 1em;
     /* border-radius: 5px; */
     /* background-image: linear-gradient(#01e8e0, #4eb8ea, #738ff0); */
-    background-color: #BBE2EC;
+    background-color: #40A2E3;
 }
 
 nav .logo {
@@ -36,7 +36,8 @@ nav .signup-btn {
 
 
 .hero {
-    background-image: linear-gradient(#01e8e0, #4eb8ea, #738ff0);
+    /* background-image: linear-gradient(#01e8e0, #4eb8ea, #738ff0); */
+    background-color: #40A2E3;
     color: white; 
     padding: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 

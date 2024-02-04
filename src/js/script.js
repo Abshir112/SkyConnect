@@ -84,6 +84,7 @@ function displayPostAndComments(post, postsContainer) {
             <img class="profile_icon" src="../src/assets/img/profile_icon.svg" alt="User icon">
             <h2 class="username" data-userid="${post.userId}">Loading username...</h2>
         </div>
+        <h3 class="post-title">${post.title}</h3>
         <p class="post-body">${post.body}</p>
         <div class="post-footer">
             <span class="post-id">Post ID: ${post.id}</span>

@@ -87,6 +87,7 @@ function displayPostAndComments(post, postsContainer) {
         <h3 class="post-title">${post.title}</h3>
         <p class="post-body">${post.body}</p>
         <div class="post-footer">
+            <span class="post-date">Posted on: ${post.reactions}</span>
             <span class="post-id">Post ID: ${post.id}</span>
         </div>
         <section class="comments">

@@ -57,6 +57,19 @@ body {
     justify-content: flex-end;
 }
 
+.reaction-container {
+    position: relative;
+    padding: 5px;
+    width: 40px;
+}
+
+.count {
+    font-size: 20px;
+    position: absolute;
+    margin-top: 0;
+    margin-right: 5px;
+}
+
 .comments {
     border-top: 1px solid #454444;
     margin-top: 10px;

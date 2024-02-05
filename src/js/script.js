@@ -86,7 +86,11 @@ function displayPostAndComments(post, postsContainer) {
         <h3 class="post-title">${post.title}</h3>
         <p class="post-body">${post.body}</p>
         <div class="post-footer">
-            <span class="post-date">Reaction: ${post.reactions}</span>
+            <span class="show-comments">Comments</span>
+            <span class="reaction-container">
+                <img src="./src/assets/img/5288427_favorite_hand_heart_like_likes_icon.svg" alt="likes tag" width="40" height="40">
+                <span class="count">${post.reactions}</span>
+            </span> 
             <span class="post-id">Post ID: ${post.id}</span>
         </div>
         <section class="comments">

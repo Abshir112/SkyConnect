@@ -69,6 +69,10 @@ body {
     margin-top: 0;
     margin-right: 5px;
 }
+.show-comments {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
 
 .comments {
     border-top: 1px solid #454444;

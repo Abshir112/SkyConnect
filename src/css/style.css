@@ -140,13 +140,13 @@ nav .signup-btn {
 }
 
 .footer-bottom {
-    background-color: #BBE2EC; /* A deep SkyConnect blue */
-    color: #0D9276;
+    background-color: #FFF6E9; /* A deep SkyConnect blue */
+    color: #40A2E3; /* A light blue color for the text */
     text-align: center; /* Center aligns the content */
     font-size: 0.95em;
     font-family:'Times New Roman', Times, serif;
     text-align: center;
-    border-top: 1px solid #34495e; 
+    border-top: 1px solid #0D9276; 
     padding: 40px 20px;
 }
 

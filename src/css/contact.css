@@ -1,3 +1,10 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Roboto font for the entire page */
+    margin: 0;
+    padding: 0;
+    background-color: #BBE2EC; /* Light grey background for the entire page */
+}
+
 /* General styling for the form section */
 section {
     background-color: #f4f4f4; /* Light grey background for the section */

@@ -15,8 +15,6 @@ nav {
     align-items: center;
     font-family: 'Roboto', Arial, sans-serif;
     padding: 1em;
-    /* border-radius: 5px; */
-    /* background-image: linear-gradient(#01e8e0, #4eb8ea, #738ff0); */
     background-color: #FFF6E9;
     color: #40A2E3;
 }
@@ -71,6 +69,8 @@ nav .signup-btn {
     object-fit: cover; 
     border-radius: 10px; 
     margin-top: 0;
+    margin-bottom: 50px;
+
 }
 
 
@@ -139,11 +139,15 @@ nav .signup-btn {
     margin-left: 4px;
 }
 
-.footer {
+.footer-bottom {
     background-color: #BBE2EC; /* A deep SkyConnect blue */
-    color: #ffffff;
-    padding: 40px 20px; /* Increased padding for better spacing */
+    color: #0D9276;
     text-align: center; /* Center aligns the content */
+    font-size: 0.95em;
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    border-top: 1px solid #34495e; 
+    padding: 40px 20px;
 }
 
 .footer-content {
@@ -232,10 +236,10 @@ footer {
     }
 }
 
-.footer-bottom {
+/* .footer-bottom {
     font-size: 0.85em;
     text-align: center;
     margin-top: 20px;
     border-top: 1px solid #34495e; 
     padding-top: 20px;
-}
+} */

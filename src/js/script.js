@@ -37,17 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             // Determine the container to append posts to
             let postsContainer = document.querySelector('.posts-container'); // Default to the post page container
-            let limitPosts = false;
+            // let limitPosts = false;
 
             // If on the homepage, adjust the target container and limit posts
-            const homePageContainer = document.querySelector('.home-page-posts');
-            if (homePageContainer) {
-                postsContainer = homePageContainer;
-                limitPosts = true;
-            }
+            // const homePageContainer = document.querySelector('.home-page-posts');
+            // if (homePageContainer) {
+            //     postsContainer = homePageContainer;
+            //     limitPosts = true;
+            // }
 
             // Display only three posts on the homepage, else display all
-            const postsToDisplay = limitPosts ? data.posts.slice(0, 3) : data.posts;
+            // const postsToDisplay = limitPosts ? data.posts.slice(0, 3) : data.posts;
+            const postsToDisplay = data.posts;
             postsToDisplay.forEach((post) => {
                 displayPostAndComments(post, postsContainer);
             });
@@ -88,7 +89,7 @@ function displayPostAndComments(post, postsContainer) {
         <div class="post-footer">
             <span class="show-comments">Comments</span>
             <span class="reaction-container">
-                <img src="./src/assets/img/5288427_favorite_hand_heart_like_likes_icon.svg" alt="likes tag" width="40" height="40">
+                <img src="../src/assets/img/5288427_favorite_hand_heart_like_likes_icon.svg" alt="likes tag" width="40" height="40">
                 <span class="count">${post.reactions}</span>
             </span> 
             <span class="post-id">Post ID: ${post.id}</span>

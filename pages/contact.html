@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/contact.css">
+    <title>SkyConnect</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../src/assets/img/skyconnect-high-resolution-logo-transparent.png" alt="skyconnect logo"  height="25">
+            </div>
+            <div class="menu">
+                <a href="../index.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="#">Posts</a>
+                <a href="./contact.html">Contact</a>
+                <!-- <a href="#">Log in</a>
+                <a href="#" class="signup-btn">Sign up</a> -->
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <form action="#" id="contactForm">
+            <fieldset>
+                <legend>Please Enter Your Details</legend>
+                Name: <input type="text" id="name" name="Name" value="">
+                <span class="error-message" id="nameError"></span>
+                <br><br>
+                Email: <input type="text" id="email" name="Email" value="">
+                <span class="error-message" id="emailError"></span>
+                <br>
+                <label for="agree">
+                    <input type="checkbox" id="agree" name="agree" value="yes">
+                    I agree to the terms and conditions
+                </label>
+                <span class="error-message" id="agreeError"></span>
+                <br>
+            </fieldset>
+            <input type="submit" id="submitBtn">
+        </form>
+    </section>
+
+    <div id="thankYouMessage" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Thank You!</h2>
+            <p>Your submission has been received. We appreciate your interest and will contact you soon.</p>
+        </div>
+    </div>
+    
+    
+    
+    
+    <script src="../src/js/form.js"></script>
+</body>
+</html>

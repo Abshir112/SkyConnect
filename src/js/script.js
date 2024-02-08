@@ -37,17 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             // Determine the container to append posts to
             let postsContainer = document.querySelector('.posts-container'); // Default to the post page container
-            // let limitPosts = false;
-
-            // If on the homepage, adjust the target container and limit posts
-            // const homePageContainer = document.querySelector('.home-page-posts');
-            // if (homePageContainer) {
-            //     postsContainer = homePageContainer;
-            //     limitPosts = true;
-            // }
-
-            // Display only three posts on the homepage, else display all
-            // const postsToDisplay = limitPosts ? data.posts.slice(0, 3) : data.posts;
+            
             const postsToDisplay = data.posts;
             postsToDisplay.forEach((post) => {
                 displayPostAndComments(post, postsContainer);

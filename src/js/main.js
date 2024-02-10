@@ -23,7 +23,7 @@ function displayNextPosts() {
 
     // Remove event listener if there are no more posts to display
     if (currentIndex >= allPosts.length) {
-        window.removeEventListener('scroll', debouncedHandleScroll);
+        window.removeEventListener('scroll', setupInfiniteScroll);
     }
 }
 
@@ -39,17 +39,17 @@ function debounce(func, wait) {
     };
 }
 
-const debouncedHandleScroll = debounce(function () {
+const setupInfiniteScroll = debounce(function () {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
     // Trigger next posts display when the user scrolls to the bottom of the page
     if (scrollHeight - scrollTop <= clientHeight + 100) { 
         displayNextPosts();
     }
-}, 300); 
+}, 200); 
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchAllPosts(); // Fetch and display the first set of posts
     setupModalCloseBehavior();
-    window.addEventListener('scroll', debouncedHandleScroll);
+    window.addEventListener('scroll', setupInfiniteScroll);
 });

@@ -57,6 +57,17 @@ body {
     justify-content: flex-end;
 }
 
+.hidden {
+    display: none;
+}
+
+/* Optional, depending on your design */
+/* .tags-container {
+    display: block; 
+} */
+
+
+
 .reaction-container {
     position: relative;
     padding: 5px;
@@ -77,6 +88,7 @@ body {
 .comments {
     border-top: 1px solid #454444;
     margin-top: 10px;
+    /* border: 1px solid red; */
 }
 
 .username:hover{
@@ -99,11 +111,26 @@ body {
 }
 
 .comment {
-    border-top: 1px solid #000;
-    padding-top: 10px;
+    border: 1px solid #000;
+    padding: 10px;
     padding-left: 5px;
     /* background-color: #4eb8ea; */
     border-radius: 10px;
+    background-color: #BBE2EC;
+    margin-bottom: 5px;
+    /* border: 1px solid red; */
+    display: flex;
+}
+
+
+.comment-username {
+    font-weight: bold;
+    margin: 10px; 
+    
+}
+
+.comment-body {
+    margin: 10px;
 }
 
 .comment:last-child {

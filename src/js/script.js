@@ -77,17 +77,33 @@ function displayPostAndComments(post, postsContainer) {
         <h3 class="post-title">${post.title}</h3>
         <p class="post-body">${post.body}</p>
         <div class="post-footer">
-            <span class="show-comments">Comments</span>
+            <span class="show-tags">Tags</span> <!-- Trigger for showing tags -->
+            <div class="tags-container hidden"></div> <!-- Container for the tags, initially hidden -->
             <span class="reaction-container">
-                <img src="../src/assets/img/5288427_favorite_hand_heart_like_likes_icon.svg" alt="likes tag" width="40" height="40">
+                <img src="../src/assets/img/5288427_favorite_hand_heart_like_likes_icon.svg" alt="likes tag" width="25" height="30">
                 <span class="count">${post.reactions}</span>
             </span> 
             <span class="post-id">Post ID: ${post.id}</span>
         </div>
         <section class="comments">
+        
+            
             <!-- Comments will be dynamically inserted here -->
         </section>
     `;
+    // Event listener for showing tags
+    // After creating the postElement and setting its innerHTML
+    const showTagsButton = postElement.querySelector('.show-tags');
+    const tagsContainer = postElement.querySelector('.tags-container');
+
+    // Populate the tags container here if not already populated
+    // For demonstration, assuming `post.tags` is an array of strings
+    tagsContainer.innerHTML = post.tags.join(', ');
+
+    showTagsButton.addEventListener('click', function() {
+        // Toggle visibility
+        tagsContainer.classList.toggle('hidden');
+    });
 
     // Append the post element to the provided container
     postsContainer.appendChild(postElement);
@@ -134,10 +150,40 @@ function displayPostAndComments(post, postsContainer) {
             data.comments.forEach(comment => {
                 const commentDiv = document.createElement('div');
                 commentDiv.classList.add('comment');
-                commentDiv.textContent = `${comment.user.username}: ${comment.body}`; // Display the username and comment body
+
+                const commentUserName = document.createElement('span');
+                commentUserName.classList.add('comment-username');
+                // const commentProfileIcon = postElement.querySelector('.profile_icon');
+                const commentBody = document.createElement('span');
+                const commeentSeparator = document.createElement('span');
+               
+                commentUserName.textContent = comment.user.username;
+                commeentSeparator.textContent = ': ';
+                commentBody.textContent = comment.body;
+
+                commentDiv.appendChild(commentUserName);
+                commentDiv.appendChild(commeentSeparator);
+                commentDiv.appendChild(commentBody);
+                
+                // commentDiv.textContent = `${comment.user.username}: ${comment.body}`; // Display the username and comment body
                 commentsSection.appendChild(commentDiv);
             });
         }).catch(error => {
             console.error(error);
         });
+        
+}
+
+function toggleTags(postElement, tags) {
+    const tagsContainer = postElement.querySelector('.tags-container');
+    if (tagsContainer.classList.contains('hidden')) {
+        // Populate tags if not already done
+        tagsContainer.innerHTML = tags.join(', '); // Assuming `tags` is an array of tag strings
+        tagsContainer.classList.remove('hidden');
+        tagsContainer.classList.add('visible');
+    } else {
+        // Hide the tags container again
+        tagsContainer.classList.add('hidden');
+        tagsContainer.classList.remove('visible');
+    }
 }

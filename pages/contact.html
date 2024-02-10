@@ -29,17 +29,21 @@
         <form action="#" id="contactForm">
             <fieldset>
                 <legend>Please Enter Your Details</legend>
-                Name: <input type="text" id="name" name="Name" value="">
+                Name <input type="text" id="name" name="Name" value="">
                 <span class="error-message" id="nameError"></span>
-                <br><br>
-                Email: <input type="text" id="email" name="Email" value="">
+                <br>
+                Email <input type="text" id="email" name="Email" value="">
                 <span class="error-message" id="emailError"></span>
                 <br>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" cols="50"></textarea>
+                <br><br>
                 <label for="agree">
                     <input type="checkbox" id="agree" name="agree" value="yes">
                     I agree to the terms and conditions
                 </label>
                 <span class="error-message" id="agreeError"></span>
+
                 <br>
             </fieldset>
             <input type="submit" id="submitBtn">

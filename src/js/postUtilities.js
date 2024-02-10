@@ -1,5 +1,5 @@
 import { fetchUser, fetchComments } from './api.js';
-import { updateUserDetails } from './modalUtilities.js'; // Assume modalUtilities.js also exports updateUserDetails
+import { updateUserDetails } from './modalUtilities.js'; 
 
 export async function displayPostAndComments(post, postsContainer) {
     const postElement = createPostElement(post);

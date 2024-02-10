@@ -4,8 +4,9 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     // Clear previous error messages
     clearErrorMessages();
 
+
     // Perform validations
-    if (validateName() && validateEmail() && validateAgreement()) {
+    if (validateName() && validateEmail() && validateMessage() && validateAgreement()) {
         // Show the thank-you message
         document.getElementById('thankYouMessage').style.display = 'block';
 
@@ -33,6 +34,15 @@ function validateEmail() {
     const email = document.getElementById('email').value;
     if (!email.includes('@') || !email.includes('.')) {
         displayErrorMessage('emailError', "Please enter a valid email address.");
+        return false;
+    }
+    return true;
+}
+
+function validateMessage() {
+    const message = document.getElementById('message').value;
+    if (message === '') {
+        displayErrorMessage('messageError', "Write a message to proceed.");
         return false;
     }
     return true;

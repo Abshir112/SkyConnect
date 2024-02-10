@@ -140,9 +140,9 @@ nav .signup-btn {
 }
 
 .footer-bottom {
-    background-color: #FFF6E9; /* A deep SkyConnect blue */
-    color: #40A2E3; /* A light blue color for the text */
-    text-align: center; /* Center aligns the content */
+    background-color: #FFF6E9; 
+    color: #40A2E3; 
+    text-align: center; 
     font-size: 0.95em;
     font-family:'Times New Roman', Times, serif;
     text-align: center;
@@ -151,30 +151,30 @@ nav .signup-btn {
 }
 
 .footer-content {
-    max-width: 800px; /* Adjusted width for a more compact look */
-    margin: auto; /* Centers the content block */
+    max-width: 800px;
+    margin: auto; 
 }
 
 .footer h2 {
-    color: #0D9276; /* A golden color for the heading */
-    margin-bottom: 20px; /* Added space below the heading */
+    color: #0D9276; 
+    margin-bottom: 20px; 
     font-weight: 700;
 
 }
 
 .footer p {
-    font-size: 1rem; /* Adjusted font size for better readability */
+    font-size: 1rem; 
     line-height: 1.6;
     font-weight: 700;
 }
 
 @media (max-width: 768px) {
     .footer h2 {
-        font-size: 1.25rem; /* Slightly smaller heading for smaller screens */
+        font-size: 1.25rem;
     }
 
     .footer p {
-        font-size: 0.9rem; /* Smaller text for compact spaces */
+        font-size: 0.9rem; 
     }
 }
 

@@ -3,6 +3,7 @@ import { User } from './user.js';
 // Cache for user data to avoid repeated fetches
 export const usersCache = {};
 
+// Fetch user data from the API
 export async function fetchUser(userId) {
     if (usersCache[userId]) {
         return usersCache[userId];
@@ -29,9 +30,11 @@ export async function fetchComments(postId) {
     return commentsData;
 }
 
-// Inside api.js
-export async function fetchPosts(page = 1, limit = 10) {
-    const response = await fetch(`https://dummyjson.com/posts?page=${page}&limit=${limit}`);
+// Fetch posts from the API
+export async function fetchPosts() {
+    
+    const response = await fetch(`https://dummyjson.com/posts`); 
     if (!response.ok) throw new Error('Posts could not be fetched.');
-    return await response.json(); // This should include posts in a paginated format
+    const postData = await response.json();
+    return postData; 
 }

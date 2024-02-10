@@ -1,7 +1,3 @@
-// Import the User class if you need to instantiate new User objects or perform type checking
-// However, for this example, it's not strictly necessary since user details are passed directly to the function
-// import { User } from './User.js';
-
 export function setupModalCloseBehavior() {
     const modal = document.getElementById('userModal');
     const closeModal = document.getElementsByClassName('close')[0];

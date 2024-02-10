@@ -49,12 +49,12 @@ export function createPostElement(post) {
 }
 
 export async function displayComments(postElement, commentsData) {
-    // Implementation remains the same...
+    
     const commentsSection = postElement.querySelector('.comments');
     commentsSection.innerHTML = ''; // Clear existing comments if any
 
     for (const comment of commentsData.comments) {
-        // Assuming the comment object includes a userId or some identifier
+        
         const user = await fetchUser(comment.user.id); // Fetch user details for each comment
         
         const commentDiv = document.createElement('div');

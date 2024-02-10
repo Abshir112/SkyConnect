@@ -1,20 +1,29 @@
 import { setupModalCloseBehavior } from './modalUtilities.js';
 import { displayPostAndComments } from './postUtilities.js';
-import { fetchPosts } from './api.js'; // Assuming this fetches posts with pagination
+import { fetchPosts } from './api.js'; // Assuming this fetches a large number of posts or all posts
 
-let currentPage = 1;
-const limit = 30; // Adjust based on your API's capabilities
+let allPosts = []; // Store all posts
+let currentIndex = 0; // Keep track of the current index for displayed posts
+const postsPerScroll = 3; // Number of posts to display per scroll
 
-async function fetchDataAndDisplay(page = 1) {
-    const { posts, total } = await fetchPosts(page, limit);
+async function fetchAllPosts() {
+    const { posts } = await fetchPosts(); 
+    allPosts = posts; // Store all posts
+    
+    displayNextPosts(); // Display the first set of posts immediately
+}
 
-    let postsContainer = document.querySelector('.posts-container');
-    posts.forEach(post => displayPostAndComments(post, postsContainer));
+function displayNextPosts() {
+    const postsContainer = document.querySelector('.posts-container');
+    // Get the next chunk of posts to display
+    const postsToDisplay = allPosts.slice(currentIndex, currentIndex + postsPerScroll);
+    postsToDisplay.forEach(post => displayPostAndComments(post, postsContainer));
 
-    currentPage++; // Prepare for the next page
+    currentIndex += postsPerScroll; // Update the current index
 
-    if (posts.length < limit || (currentPage * limit) >= total) {
-        window.removeEventListener('scroll', debouncedHandleScroll); // No more posts to load
+    // Remove event listener if there are no more posts to display
+    if (currentIndex >= allPosts.length) {
+        window.removeEventListener('scroll', debouncedHandleScroll);
     }
 }
 
@@ -33,37 +42,14 @@ function debounce(func, wait) {
 const debouncedHandleScroll = debounce(function () {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-    if (scrollHeight - scrollTop <= clientHeight + 10) {
-        fetchDataAndDisplay(currentPage);
+    // Trigger next posts display when the user scrolls to the bottom of the page
+    if (scrollHeight - scrollTop <= clientHeight + 100) { 
+        displayNextPosts();
     }
-}, 100); // Adjust debounce time as needed
+}, 300); 
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchDataAndDisplay(); // Load the first page of posts
+    fetchAllPosts(); // Fetch and display the first set of posts
     setupModalCloseBehavior();
     window.addEventListener('scroll', debouncedHandleScroll);
 });
-
-
-// import { setupModalCloseBehavior } from './modalUtilities.js';
-// import { displayPostAndComments } from './postUtilities.js';
-// import { fetchUser } from './api.js'; // If you need to prefetch user data
-
-// async function fetchDataAndDisplay() {
-//     try {
-//         const postsResponse = await fetch('https://dummyjson.com/posts');
-//         if (!postsResponse.ok) throw new Error('Posts could not be fetched.');
-//         const { posts } = await postsResponse.json();
-
-//         let postsContainer = document.querySelector('.posts-container');
-//         posts.forEach(post => displayPostAndComments(post, postsContainer));
-        
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     fetchDataAndDisplay();
-//     setupModalCloseBehavior();
-// });

@@ -155,14 +155,14 @@ function displayPostAndComments(post, postsContainer) {
                 commentUserName.classList.add('comment-username');
                 // const commentProfileIcon = postElement.querySelector('.profile_icon');
                 const commentBody = document.createElement('span');
-                const commeentSeparator = document.createElement('span');
+                // const commeentSeparator = document.createElement('span');
                
                 commentUserName.textContent = comment.user.username;
-                commeentSeparator.textContent = ': ';
+                // commeentSeparator.textContent = ': ';
                 commentBody.textContent = comment.body;
 
                 commentDiv.appendChild(commentUserName);
-                commentDiv.appendChild(commeentSeparator);
+                // commentDiv.appendChild(commeentSeparator);
                 commentDiv.appendChild(commentBody);
                 
                 // commentDiv.textContent = `${comment.user.username}: ${comment.body}`; // Display the username and comment body

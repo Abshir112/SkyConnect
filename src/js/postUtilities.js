@@ -17,7 +17,6 @@ export async function displayPostAndComments(post, postsContainer) {
 }
 
 export function createPostElement(post) {
-    // Implementation remains the same...
     const postElement = document.createElement('article');
     postElement.classList.add('post');
     postElement.innerHTML = `
@@ -51,7 +50,7 @@ export function createPostElement(post) {
 export async function displayComments(postElement, commentsData) {
     
     const commentsSection = postElement.querySelector('.comments');
-    commentsSection.innerHTML = ''; // Clear existing comments if any
+    commentsSection.innerHTML = ''; 
 
     for (const comment of commentsData.comments) {
         

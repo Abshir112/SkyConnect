@@ -1,6 +1,6 @@
 import { setupModalCloseBehavior } from './modalUtilities.js';
 import { displayPostAndComments } from './postUtilities.js';
-import { fetchPosts } from './api.js'; // Assuming this fetches a large number of posts or all posts
+import { fetchPosts } from './api.js'; 
 
 let allPosts = []; // Store all posts
 let currentIndex = 0; // Keep track of the current index for displayed posts

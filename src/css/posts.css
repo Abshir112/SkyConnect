@@ -184,6 +184,11 @@ body {
     width: 29%;
 }
 
+#modal-id {
+    float: right;
+    font-size: 18px;
+}
+
 .close {
     color: #aaa;
     float: right;

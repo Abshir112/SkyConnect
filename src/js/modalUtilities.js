@@ -31,5 +31,6 @@ function showModal(user) {
     document.getElementById('modal-fullname').textContent = `Full Name: ${user.fullName}`; // Using getter from User class
     document.getElementById('modal-email').textContent = `Email: ${user.email}`;
     document.getElementById('modal-phone').textContent = `Phone: ${user.phone}`;
+    document.getElementById('modal-id').textContent = `User ID: ${user.id}`;
     document.getElementById('userModal').style.display = 'block';
 }

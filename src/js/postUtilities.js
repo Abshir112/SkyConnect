@@ -30,7 +30,7 @@ export function createPostElement(post) {
             <span class="show-tags">Tags</span>
             <div class="tags-container hidden">${post.tags ? post.tags.join(', ') : ''}</div>
             <span class="reaction-container">
-                <img src="../src/assets/img/5288427_favorite_hand_heart_like_likes_icon.svg" alt="likes tag" width="25" height="30">
+                <img src="../src/assets/img/love_icon.svg" alt="likes tag" width="30" height="30">
                 <span class="count">${post.reactions}</span>
             </span> 
             <span class="post-id">Post ID: ${post.id}</span>
